@@ -1,0 +1,120 @@
+.card-hover {
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+}
+
+.card-hover .card-body {
+  flex: 1;
+}
+
+.btn-warning {
+  background-color: #f39c12;
+  border-color: #f39c12;
+}
+
+.btn-warning:hover {
+  background-color: #e67e22;
+  border-color: #e67e22;
+}
+
+/* RTL fixes */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="rtl"] .text-start {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-end {
+  text-align: left !important;
+}
+/* Matching the Navbar/Footer Dark Color */
+:root {
+  --brand-dark: #1d2634; /* The dark charcoal from your footer */
+  --brand-accent: #f7931e; /* The gold/yellow from your logo/EN button */
+}
+
+.guide-card {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Updated Button to match Footer */
+.btn-contact {
+  background-color: var(--brand-dark);
+  color: #ffffff !important;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 500;
+  text-transform: lowercase; /* Matches your 'contact' screenshot style */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-contact:hover {
+  background-color: #2d3a4f; /* Slightly lighter version of the dark color */
+  color: var(--brand-accent) !important; /* Text turns yellow on hover for a pop */
+}
+
+/* Language Badges - Keeping them clean */
+.lang-badge {
+  background-color: #f8f9fa;
+  color: #555;
+  border: 1px solid #e9ecef;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+}
+/* Card Hover Effect */
+.guide-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.guide-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Button Hover Effect */
+.guide-card .btn {
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.guide-card:hover .btn {
+  background-color: #f7931e !important;
+  color: white !important;
+}
+
+/* Language Badges */
+.badge.bg-white.text-muted.border {
+  font-size: 0.8rem;
+  padding: 0.5em 0.8em;
+  border-radius: 6px;
+}
+.distance-text {
+  font-size: 0.85rem;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
