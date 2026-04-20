@@ -27,7 +27,7 @@ pipeline {
                     def scannerHome = tool 'MySonarScanner'
 
                     withSonarQubeEnv('benhsan') {
-                        withCredentials([string(credentialsId: 'sonarqube', variable: 'TOKEN')]) {
+                        withCredentials([string(credentialsId: 'hsan', variable: 'TOKEN')]) {
                             bat """
                             ${scannerHome}\\bin\\sonar-scanner.bat ^
                             -Dsonar.projectKey=AirportProject ^
