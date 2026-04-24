@@ -6,7 +6,7 @@ pipeline {
         stage('Check SonarScanner Installation') {
             steps {
                 script {
-                    def scannerHome = tool 'MySonarScanner'
+                    def scannerHome = tool 'MySonarScanner11'
                     echo "SonarScanner should be installed at: ${scannerHome}"
 
                     bat "dir \"${scannerHome}\\bin\\sonar-scanner.bat\""
@@ -24,10 +24,10 @@ pipeline {
         stage('Analyse SonarQube') {
             steps {
                 script {
-                    def scannerHome = tool 'MySonarScanner'
+                    def scannerHome = tool 'MySonarScanner11'
 
-                    withSonarQubeEnv('benhsan') {
-                        withCredentials([string(credentialsId: 'hsan', variable: 'TOKEN')]) {
+                    withSonarQubeEnv('111') {
+                        withCredentials([string(credentialsId: '111', variable: 'TOKEN')]) {
                             bat """
                             ${scannerHome}\\bin\\sonar-scanner.bat ^
                             -Dsonar.projectKey=AirportProject ^
