@@ -13,10 +13,9 @@ spec:
     metadata:
       labels:
         app: mon-appli
-
-    spec:
-      containers:
-        - name: mon-conteneur
-          image: abdo030/mon-image:latest
-          ports:
-            - containerPort: 80
+spec:
+  containers:
+  - name: mon-appli
+    image: abdo030/mon-image:2
+    ports:
+    - containerPort: 80  # تغيير من 3001 أو غيره إلى 80
