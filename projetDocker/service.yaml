@@ -7,6 +7,6 @@ spec:
     app: mon-appli
   ports:
     - protocol: TCP
-      port: 80         # المنفذ الخارجي للخدمة
-      targetPort: 80   # المنفذ الداخلي لـ Nginx
-  type: NodePort       # يسمح بالوصول للموقع عبر localhost
+      port: 80
+      targetPort: 80
+  type: NodePort

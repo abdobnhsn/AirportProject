@@ -13,7 +13,7 @@ spec:
         app: mon-appli
     spec:
       containers:
-      - name: mon-conteneur  # تأكد أن هذا الاسم يطابق ما هو موجود في Jenkinsfile
-        image: abdo030/mon-image:4
+      - name: mon-conteneur
+        image: abdo030/mon-image:6
         ports:
-        - containerPort: 80
+        - containerPort: 80  # منفذ Nginx الافتراضي
