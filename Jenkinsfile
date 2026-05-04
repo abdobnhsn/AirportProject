@@ -11,11 +11,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // إذا تريد بناء الـ backend:
-                    bat 'docker build -t "abdo030/mon-image:2" -f projetDocker/backend/Dockerfile projetDocker/backend'
-                    
-                    // أو إذا تريد بناء الـ frontend:
-                    // bat 'docker build -t "abdo030/mon-image:2" -f projetDocker/frontend/Dockerfile projetDocker/frontend'
+                    // بناء الـ Frontend الذي يستخدم Nginx والمنفذ 80
+                    bat 'docker build -t "abdo030/mon-image:4" -f projetDocker/frontend/Dockerfile projetDocker/frontend'
                 }
             }
         }
@@ -23,7 +20,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    bat 'docker push "abdo030/mon-image:2"'
+                    bat 'docker push "abdo030/mon-image:4"'
                 }
             }
         }
@@ -32,16 +29,18 @@ pipeline {
             steps {
                 bat 'kubectl apply -f projetDocker/deployment.yaml'
                 bat 'kubectl apply -f projetDocker/service.yaml'
+                // أمر لضمان تحديث الـ Pods فوراً بالصورة الجديدة
+                bat 'kubectl rollout restart deployment mon-appli'
             }
         }
     }
 
     post {
         success {
-            echo '✅ Pipeline نجح!'
+            echo '✅ تمت العملية بنجاح! الموقع جاهز.'
         }
         failure {
-            echo '❌ Pipeline فشل!'
+            echo '❌ فشل الـ Pipeline. تحقق من الإعدادات.'
         }
     }
 }

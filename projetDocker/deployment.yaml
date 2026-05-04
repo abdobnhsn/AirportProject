@@ -2,20 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mon-appli
-
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: mon-appli
-
   template:
     metadata:
       labels:
         app: mon-appli
-spec:
-  containers:
-  - name: mon-appli
-    image: abdo030/mon-image:2
-    ports:
-    - containerPort: 80  # تغيير من 3001 أو غيره إلى 80
+    spec:
+      containers:
+      - name: mon-conteneur  # تأكد أن هذا الاسم يطابق ما هو موجود في Jenkinsfile
+        image: abdo030/mon-image:4
+        ports:
+        - containerPort: 80

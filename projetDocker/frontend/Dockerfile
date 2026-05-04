@@ -1,12 +1,5 @@
-FROM node:18
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
-COPY . .
-
-EXPOSE 3000
-
-CMD ["npm", "run", "dev"]
+FROM nginx:alpine
+# نسخ ملفات مشروع مطار صفاقس إلى مجلد Nginx الافتراضي
+COPY . /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
