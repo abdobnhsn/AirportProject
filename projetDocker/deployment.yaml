@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: mon-conteneur
-        image: abdo030/mon-image:6
+        image: abdo030/mon-image:7
         ports:
-        - containerPort: 80  # منفذ Nginx الافتراضي
+        - containerPort: 80
