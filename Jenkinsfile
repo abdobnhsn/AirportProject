@@ -28,18 +28,29 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
-            steps {
-                withCredentials([file(credentialsId: 'kubeconfig-prod', variable: 'KUBECONFIG')]) {
-                    script {
-                        bat 'kubectl apply -f projetDocker/deployment.yaml'
-                        bat 'kubectl apply -f projetDocker/service.yaml'
-                        bat 'kubectl set image deployment/mon-appli mon-conteneur=abdo030/mon-image:7'
-                        bat 'kubectl rollout status deployment/mon-appli'
-                    }
-                }
+stage('Deploy to Kubernetes') {
+    steps {
+        withCredentials([file(credentialsId: 'kubeconfig-prod', variable: 'KUBECONFIG')]) {
+            script {
+                bat 'kubectl apply -f projetDocker/deployment.yaml'
+                bat 'kubectl apply -f projetDocker/service.yaml'
+                bat 'kubectl set image deployment/mon-appli mon-conteneur=abdo030/mon-image:11'
+                bat 'kubectl rollout status deployment/mon-appli'
             }
         }
+    }
+}stage('Deploy to Kubernetes') {
+    steps {
+        withCredentials([file(credentialsId: 'kubeconfig-prod', variable: 'KUBECONFIG')]) {
+            script {
+                bat 'kubectl apply -f projetDocker/deployment.yaml'
+                bat 'kubectl apply -f projetDocker/service.yaml'
+                bat 'kubectl set image deployment/mon-appli mon-conteneur=abdo030/mon-image:11'
+                bat 'kubectl rollout status deployment/mon-appli'
+            }
+        }
+    }
+}
     }
 
     post {
